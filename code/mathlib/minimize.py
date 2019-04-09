@@ -42,7 +42,7 @@ def downhill_simplex(function, start, max_iters = 100, toll = 1e-10):
              
         max_iters -= 1
         
-        # Order the vertices such that f(x_0) <= f(x_1) <= f(x_2) ... <= f(x_n).
+        # Order the vertices such that f(x_0) <= f(x_1) <= f(x_2) ... <= f(x_n)
         # Just use selection sorts, even in 50 dimensions it is just of O(2500)
         for i in range(0, vertices.shape[0]):
 
@@ -59,7 +59,7 @@ def downhill_simplex(function, start, max_iters = 100, toll = 1e-10):
                     vertices[j] = tmp_1              
                     evaluations[j] = tmp_2     
 
-        # Check if error is within the tolerance.
+        # Check if 'converged'
         if (abs(evaluations[dim] - evaluations[0]))/(abs(evaluations[dim] + evaluations[0])/2) < toll:
             return vertices[0]
 

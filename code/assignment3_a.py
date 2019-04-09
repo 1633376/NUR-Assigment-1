@@ -1,6 +1,6 @@
 import mathlib.utils
 import mathlib.integrate
-import mathlib.minimize
+import mathlib.minimize as minimize
 import mathlib.interpolate3D
 import matplotlib.pyplot as plt
 import numpy as np
@@ -38,21 +38,27 @@ def main():
         likelihood_wrapper = lambda a, b, c: likelihood(Nsat, super_halo, a, b, c)       
         
         # Find the optimal values.
-        a_opt, b_opt, c_opt = mathlib.minimize.downhill_simplex(likelihood_wrapper, [1.1, 1.3, 3.1], max_iters=200)
-
-        d = lambda x: N(Nsat,x,a_opt,b_opt,c_opt)
-       
+        a_opt, b_opt, c_opt = minimize.downhill_simplex(likelihood_wrapper,
+                                                        [1.1, 1.3, 3.1],
+                                                         max_iters=200)
+      
         # Print the file and the output.
-        print('File: {0} a_opt:{1:.5f} b_opt:{2:.5f} c_opt:{3:.5f}'.format(file, a_opt, b_opt, c_opt))
+        print('File: {0} a_opt:{1:.5f} b_opt:{2:.5f} c_opt:{3:.5f}'
+              .format(file, a_opt, b_opt, c_opt))
 
       
         # Plot the results  for the optimal found values.
         bins = np.logspace(-4, np.log10(5), 21)
         x = np.linspace(min(super_halo), 5, 100)
         
-        plt.plot(x, N(Nsat,x,a_opt,b_opt,c_opt)/Nsat , c='red', label= 'Model')
-        plt.hist(super_halo, bins= bins, density= True, label='Data')
-        plt.legend()
+        plt.plot(x, N(Nsat,x,a_opt,b_opt,c_opt)/Nsat ,
+                 c = 'red', label = 'Model')
+        plt.hist(super_halo, bins= bins, density = True,
+                 label = 'Data', edgecolor = 'black')
+
+        plt.xlim(min(super_halo)/5, max(super_halo)*30)
+        plt.ylim(bottom=10**(-20), top=10)
+        plt.legend(framealpha=1, loc= 1)
         plt.loglog()
         plt.savefig('./plots/' + file[0:-4] + '.pdf')
         plt.figure()
