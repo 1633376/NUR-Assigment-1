@@ -4,7 +4,7 @@ import mathlib.interpolate3D
 
 # The a,b,c found in the previous assigment for
 # m11, m12, m13, m14, m15.
-abc_values = np.array([[1.28368, 1.14960, 3.33632],
+abc_values = np.array([[1.28368, 1.14950, 3.33632],
               [1.54045, 0.94998, 3.74252],
               [1.40908, 0.85051, 3.20000],
               [1.61791, 0.74704, 3.48682],
