@@ -1,0 +1,37 @@
+\subsection*{Question 2.h \hrule}
+\textbf{Question}
+\begin{quote}
+The normalization factor $A$ depends on all three parameters. Calculate $A$ at 0.1 wide intervals in the range of $a$, $b$ and $c$ given above (including the boundaries). You should get a table containing 6240 values. Choose an interpolation scheme and write a 3D interpolator for $A$ as a function of the three parameters based on these calculated values.
+\end{quote}
+
+\textbf{Solution}
+\begin{quote}
+The chosen interpolator is a 3D linear interpolator. The code for the interpolator and the explanation of how it interpolates can be found in the  file \textsf{./code/mathlib/interpolate3D.py}.  The file makes use of 1 dimensional linear interpolator of which the code can be found in question 2.b. The code that creates the table can be found in the file \textsf{./code/assignment2\_ h.py}. 
+\end{quote}
+\newpage
+
+\textbf{Code - Table}
+\begin{quote}
+The code that creates the table and performs a small test to see how well 
+the interpolator approximates the true value.
+\lstinputlisting{./code/assignment2_h.py} 
+\end{quote}
+
+\textbf{Code - interpolator}
+\begin{quote}
+The code for the 3D interpolator
+\lstinputlisting{./code/mathlib/interpolate3D.py} 
+\end{quote}
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+

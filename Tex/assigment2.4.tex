@@ -1,0 +1,71 @@
+\subsection*{Question 2.d \hrule}
+\textbf{Question}
+\begin{quote}
+Now we want to generate 3D satellite positions such that they statistically follow the satellite profile in equation (2) of the assignment; that is, the probability distribution of the (relative) radii $x \in [0, x_{max})$ should be $p(x)dx = n(x)4\pi x^2 dx/ \langle N_{sat} \rangle$ (with the same a,b and c as before). Use one of the methods discussed in class to sample this distribution. Additionally, for each galaxy generate random angles $\phi$ and $\theta$ such that the resulting positions are (statistically) uniformly distributed as a function of direction. Output the positions ($r, \phi, \theta$) for 100 such satellites.
+\end{quote}
+
+\textbf{Solution} 
+\begin{quote}
+Let $v$ be a uniform random variable between 0 and 1. A uniform distributed $\phi$ and $\theta$ on a sphere are then given by,
+
+\begin{align}
+\phi &= 2 \pi v \\
+\theta &=  \arccos(1-2v)
+\end{align}
+
+These equation can be derived from a uniform distribution for the solid angle. This derivation is not asked in the question and the equations are therefore directly taken from the first slide of the 5th lecture.
+
+The radius $x$ is sampled from the given probability distribution $p(x) = n(x)4 \pi x^2/ \langle N_{sat} \rangle$ with the help of rejection sampling. To apply rejection sampling first a distribution $p_{enc}(x)$ is chosen that encloses all of $p(x)$ when the distribution is multiplied with a scalar $k$ (i.e $p(x) < kp_{enc}(x) \ \forall \ x \in[0,5)$). The chosen distribution is an uniform distribution for $x \in[0,5)$,
+\begin{equation}
+p_{enc}(x) = 
+     \begin{cases}
+       \frac{1}{5} &\quad\text{for $0< x < 5$} \\
+       0  &\quad\text{otherwise}
+     \end{cases}
+\end{equation}  
+
+The scalar is chosen to be $k = 2$. To apply rejection sampling it must first be possible to generate samples from $p_{enc}$. To sample from this distribution the fundamental transformation law of probability is applied. Let $y$ be a uniform random variable between 0 and 1.  Let $z$ be distributed according to $p_{enc}$. The fundamental transformation law of probabilities then yields, 
+\begin{equation}
+\int_0^z p_{enc}(z') dz' = \int_0^y 1 dy' 
+\end{equation}
+
+Solving this for $z$ gives the transformation that is needed to let $Y$ be distributed according to $p_{enc}$,
+\begin{equation}
+ z = 5y
+ \label{eq:transf}
+\end{equation}
+
+%The variable $y$ can be generated from the random number generator and the above transformation allows us to transform it to a sample distributed according to $p_{enc}$. 
+
+Samples distributed according to $p(x)$ can now be found with rejection sampling:  Generate a random uniform variable $y$ between 0 and 1. Transform this variable to obtain a random variable z distributed according to $p_{enc}$. If a new random variable $w$ generated\footnote{Let $u$ be an uniform variable between 0 and 1, then w is given by $w = k*p_{enc}(z)*u$. This can be derived on exactly the same way as equation \ref{eq:transf}.} from an uniform distribution between 0 and $k p_{enc}(z)$  is smaller or equal than $ p(z)$, then $z$ is a sample from the distribution of which we want to sample. If the condition does not hold reject the sample and repeat the above process.    
+
+
+
+The code used for the sample generation and the printing of the results consists of two files. The first file is the file that prints the results: \textsf{./code/assignment2.d.py}.  The second file, \textsf{./code/mathlib/rng.py}, contains the functions \textsf{rejection\_ sample} and \textsf{gen\_ uniform\_ spherical\_ surface\_ coords}) that are used to obtain the result. \textbf{The code for the second file can be found on pages 6 and 7}. The code for the first file and its output can be found on the next page.
+
+
+\end{quote}
+
+\textbf{Code - output}
+\begin{quote}
+
+The code that generates the output. 
+\lstinputlisting{./code/assignment2_d.py}
+\end{quote}
+
+\textbf{Output - text}
+\begin{quote}
+The generated output.
+\lstinputlisting{./output/assignment2_d_out.txt}
+\end{quote}
+
+
+
+
+
+
+
+
+
+
+

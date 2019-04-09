@@ -1,0 +1,68 @@
+\subsection*{Assignment 2.6 \hrule}
+
+\textbf{Question}
+\begin{quote}
+Write a root-finding algorithm to find the solution(s) to $N(x) = y/2$ in the same x-range, where $y$ is the maximum of $N(x)$. Use the same parameter values as before. Output the root(s).
+\end{quote}
+
+\textbf{Solution}
+\begin{quote}
+The x-c\" oordinate of the maximum is determined analytically by taking the derivative of $N(x)$,
+  
+\begin{align*}
+\frac{d N(x)}{dx} &= 4 \pi A \langle N_{sat} \rangle \frac{d}{dx} \left[b^2 \left(\frac{x}{b} \right)^{a-1}  \exp\left(-\left(\frac{x}{b} \right)^{c} \right) \right] \\
+&= 4 \pi A \langle N_{sat} \rangle \left(b^2 (a-1) \left(\frac{x}{b} \right)^{a-2} \frac{1}{b} \exp\left(-\left(\frac{x}{b} \right)^{c} \right) - b^2\left(\frac{x}{b} \right)^{a-1} \exp\left(-\left(\frac{x}{b} \right)^{c} \right)c\left(\frac{x}{b} \right)^{c-1}\frac{1}{b} \right) \\
+&= 4 \pi \langle N_{sat} \rangle b \exp \left(- \left(\frac{x}{b}\right)^c \right)
+ \left( (a-1) \left(\frac{x}{b} \right)^{a-2} - c\left( \frac{x}{b} \right)^{a-1} \left(\frac{x}{b} \right)^{c-1} \right)
+\end{align*}
+
+Equating the derivative to zero gives as solutions that,  
+\begin{equation}
+4 \pi \langle N_{sat} \rangle b \exp \left(- \left(\frac{x}{b}\right)^c \right) = 0\hspace*{0.5cm} \text{or} \hspace*{0.5cm}  \left( (a-1) \left(\frac{x}{b} \right)^{a-2} - c\left( \frac{x}{b} \right)^{a-1} \left(\frac{x}{b} \right)^{c-1} \right) = 0
+\end{equation}
+
+The equation on the left is not solvable. Taking the equation on the right and solving it for x gives,
+%Simplifying then yields,
+\begin{align*}
+(a-1) \left(\frac{x}{b} \right)^{a-2} &= c\left( \frac{x}{b} \right)^{a-1} \left(\frac{x}{b} \right)^{c-1} \\
+(a-1) \left(\frac{x}{b} \right)^{a-2} &= c\left( \frac{x}{b} \right)^{a-2} \left(\frac{x}{b} \right)^{c} \\
+(a-1) &= c \left(\frac{x}{b} \right)^{c} \\
+x_{max} &= \left( \frac{a-1}{c} \right)^{1/c} b
+\end{align*}
+
+The maximum value, $y$, is now given by,
+\begin{equation}
+y = N(x_{max})
+\end{equation}
+
+
+The roots of $N(x) - y/2 = 0$ are found with the Newton-Raphson method. The code that applies the Newton-Raphson method and prints the root is located in the file: \textsf{./code/assignment2\_ f.py}. The implementation of the Newton-Raphson method  is found in \textsf{./mathlib/roots.py}. The content of these files and the output of the first file can be found below. % code files and the output of the first file is shown below.
+\end{quote}
+
+\textbf{Code - output}
+\begin{quote}
+The code that find the roots and prints them.
+\lstinputlisting{./code/assignment2_f.py}
+\end{quote}
+
+\textbf{Code - Newton- Raphson}
+\begin{quote}
+The code for the Newton-Raphson method.
+\lstinputlisting[lastline=61]{./code/mathlib/roots.py}
+\end{quote}
+
+\textbf{Output - text}
+\begin{quote}
+The output of \textsf{./code/assigment2\_ f.py}
+\lstinputlisting{./output/assignment2_f_out.txt}
+\end{quote}
+
+
+
+ 
+
+
+
+
+
+

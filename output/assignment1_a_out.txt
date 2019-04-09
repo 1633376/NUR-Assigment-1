@@ -1,0 +1,4 @@
+Poisson(mean:1.0, events:0) = 3.678794411714423E-01
+Poisson(mean:5.0, events:10) = 1.813278870782187E-02
+Poisson(mean:3.0, events:21) = 1.019339824111019E-11
+Poisson(mean:2.6, events:40) = 3.615123994937689E-33

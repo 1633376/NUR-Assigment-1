@@ -1,0 +1,54 @@
+\newpage
+\subsection*{Assignment 2.a \hrule}
+\textbf{Question}
+\begin{quote}
+The number density profile for satellite galaxies is given by,
+\begin{equation}
+n(x) = A \langle N_{sat} \rangle \left(\frac{x}{b} \right)^{a-3} \exp\left[- \left(\frac{x}{b} \right)^c \right]
+\end{equation}
+
+where $x$ is the radius relative to the virial radius, and $a$, $b$ and $c$ are free parameters. The value of A here normalizes the integral such that the integral from $x = 0$ to $x = 5$ gives,
+
+\begin{equation}
+\langle N_{sat} \rangle= \iiint_V n(x) dV
+\label{eq:three}
+\end{equation}
+
+Have your code randomly generate three numbers 1.1 $<$ a $<$ 2.5, 0.5 $<$ b $<$ 2 and 1.5 $<$ c $<$ 4. Write a numerical integrator to solve equation \ref{eq:three} in spherical coordinates for A given those three parameters, taking $ \langle N_{sat}\rangle = 100$. Output the numbers a, b, c and A. 
+
+\end{quote}
+
+\textbf{Solution}
+\begin{quote}
+The value of $A$ is found with the help of Romberg integration. The code for this assignment is located in two files:\textsf{./code/assignment2\_ a.py} and \textsf{./code/mathlib/integrate.py}. The first file contains the code that generates the values $a$, $b$, $c$ and $A$. The second file contains the implementation for Romberg integration. The code for both files and the output can be found below.
+
+\end{quote}
+
+\textbf{Code - output}
+\begin{quote}
+The code for generating the output.
+\lstinputlisting{./code/assignment2_a.py}
+\end{quote}
+
+\newpage
+\textbf{Code - romberg}
+\begin{quote}
+The code for romberg integration. 
+\lstinputlisting[firstline=0,lastline=76]{./code/mathlib/integrate.py}
+\end{quote}
+
+\textbf{Output - Text}
+\begin{quote}
+The produced output from \textsf{./code/assigment2\_ a.py}.
+\lstinputlisting{./output/assignment2_a_out.txt}
+\end{quote}
+
+
+
+
+
+
+
+
+
+

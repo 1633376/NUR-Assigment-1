@@ -1,0 +1,48 @@
+\subsection*{Assignment 1.a \hrule} 
+\textbf{Question}
+\begin{quote}
+ Evaluate the Poisson probability function (equation \ref{eq:poisson}) to at least six significant digits for the values: ($\lambda$, $k$) $= (1, 0)$, $(5, 10)$, $(3, 21)$ and $(2.6, 40)$. 
+\\
+
+\begin{equation}
+P_{\lambda}(k) = \frac{\lambda ^k e^{-\lambda}}{k!}
+\label{eq:poisson}
+\end{equation}
+\end{quote}
+
+\textbf{Solution} 
+
+\begin{quote}
+The Poisson distribution is evaluated up to 15 significant digits for the requested values of $(\lambda, k)$. The file \textsf{./code/assignment1\_ a.py} evaluates the distribution and prints the results. The file \textsf{./code/mathlib/utils.py} contains the Poisson distribution and the factorial function that are necessary to obtain the result. The code and its output can be found below. 
+\end{quote}
+
+\textbf{Code - output } 
+\begin{quote}
+ The code that produces the output.
+\lstinputlisting{./code/assignment1_a.py}
+\end{quote}
+
+\textbf{Code - helper } 
+\begin{quote}
+The code for the Poisson distribution and the factorial function.  
+\lstinputlisting[firstline=2,lastline=46]{./code/mathlib/utils.py}
+\end{quote}
+
+
+\textbf{Output}
+\begin{quote}
+The output produced by \textsf{/code/assignment1\_ a.py} 
+\lstinputlisting{./output/assignment1_a_out.txt}
+\end{quote}
+\newpage
+
+
+
+
+
+
+
+
+
+
+

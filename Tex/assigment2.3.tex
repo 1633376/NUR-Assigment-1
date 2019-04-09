@@ -1,0 +1,53 @@
+\subsection*{Assignment 2.c \hrule}
+\textbf{Question}
+\begin{quote}
+Numerically calculate d$n(x)$/dx at $x = b$. Output the value found alongside the analytical result, both to at least 12 significant digits. Choose your algorithm such as to get them as close as possible. 
+\end{quote}
+\textbf{Solution}
+\begin{quote}
+The the volume number density for satellite galaxies is,
+\begin{equation}
+n(x) = A \langle N_{sat} \rangle \left(\frac{x}{b} \right)^{a-3}  \exp\left(-\left(\frac{x}{b} \right)^{c} \right)
+\end{equation}
+
+Calculating the analytical derivative gives, 
+
+\begin{align*}
+\frac{d n(x)}{dx} &= A \langle N_{sat} \rangle \frac{d}{dx} \left[ \left(\frac{x}{b} \right)^{a-3}  \exp\left(-\left(\frac{x}{b} \right)^{c} \right) \right] \\
+&= A \langle N_{sat} \rangle \left((a-3) \left(\frac{x}{b} \right)^{a-4} \frac{1}{b} \exp\left(-\left(\frac{x}{b} \right)^{c} \right) - \left(\frac{x}{b} \right)^{a-3} \exp\left(-\left(\frac{x}{b} \right)^{c} \right)c\left(\frac{x}{b} \right)^{c-1}\frac{1}{b} \right)
+\end{align*}
+ For $x = b$ this yields,
+\begin{equation}
+\left.\frac{dy}{dx}\right|_{x=b}  =  A \langle N_{sat} \rangle \left((a-3)e^{-1} \frac{1}{b}-e^{-1} \frac{c}{b} \right) = \frac{A \langle N_{sat} \rangle }{b e} \left((a-3) - c \right)
+\end{equation}
+
+The code that calculates the analytical and numerical result consists of two files:  \textsf{./code/assignment2\_ c.py} and \textsf{./code/mathlib/derivative.py}. The first file calculates the analytical and numerical results and outputs these results with 12 significant digits. The second file contains the code for Ridders method, which is used to make the numerical calculation. The code of both files and the output can be found below. 
+\end{quote}
+
+\textbf{Code - output}
+\begin{quote}
+The code that produces the output.
+\lstinputlisting{./code/assignment2_c.py}
+\end{quote}
+
+\newpage
+\textbf{Code - ridder}
+\begin{quote}
+\hspace*{-0.6cm}The code for ridder's method
+\lstinputlisting{./code/mathlib/derivative.py}
+\end{quote}
+
+\textbf{Output - Text}
+\begin{quote}
+The output from \textsf{./code/assignment2\_ c.py} with 12 significant digits.
+\lstinputlisting{./output/assignment2_c_out.txt}
+\end{quote}
+\newpage
+
+
+
+
+
+
+
+
