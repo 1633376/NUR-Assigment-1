@@ -1,0 +1,5 @@
+File: satgals_m11.txt a_opt:1.28368 b_opt:1.14950 c_opt:3.33632
+File: satgals_m12.txt a_opt:1.54045 b_opt:0.94998 c_opt:3.74252
+File: satgals_m13.txt a_opt:1.40908 b_opt:0.85051 c_opt:3.20000
+File: satgals_m14.txt a_opt:1.61791 b_opt:0.74704 c_opt:3.48682
+File: satgals_m15.txt a_opt:1.60000 b_opt:0.94610 c_opt:2.90000
