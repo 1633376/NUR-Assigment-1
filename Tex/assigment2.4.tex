@@ -32,12 +32,11 @@ The scalar is chosen to be $k = 2$. To apply rejection sampling it must first be
 Solving this for $z$ gives the transformation that is needed to let $Y$ be distributed according to $p_{enc}$,
 \begin{equation}
  z = 5y
- \label{eq:transf}
 \end{equation}
 
 %The variable $y$ can be generated from the random number generator and the above transformation allows us to transform it to a sample distributed according to $p_{enc}$. 
 
-Samples distributed according to $p(x)$ can now be found with rejection sampling:  Generate a random uniform variable $y$ between 0 and 1. Transform this variable to obtain a random variable z distributed according to $p_{enc}$. If a new random variable $w$ generated\footnote{Let $u$ be an uniform variable between 0 and 1, then w is given by $w = k*p_{enc}(z)*u$. This can be derived on exactly the same way as equation \ref{eq:transf}.} from an uniform distribution between 0 and $k p_{enc}(z)$  is smaller or equal than $ p(z)$, then $z$ is a sample from the distribution of which we want to sample. If the condition does not hold reject the sample and repeat the above process.    
+Samples distributed according to $p(x)$ can now be found with rejection sampling:  Generate a random uniform variable $y$ between 0 and 1. Transform this variable to obtain a random variable z distributed according to $p_{enc}$. If a new random variable $w$ generated\footnote{Let $u$ be an uniform variable between 0 and 1, then w is given by $w = k*p_{enc}(z)*u$. This can be derived on exactly the same way as equation 10.} from an uniform distribution between 0 and $k p_{enc}(z)$  is smaller or equal than $ p(z)$, then $z$ is a sample from the distribution of which we want to sample. If the condition does not hold reject the sample and repeat the above process.    
 
 
 

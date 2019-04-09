@@ -6,10 +6,10 @@ Make a log-log plot of and plot single points for $n(10^{-4})$, $n(10^{-2})$, $n
 
 \textbf{Solution}
 \begin{quote}
-Four out of the 5 points plotted in logarithmic space seems to follow a straight line (see figure \ref{fig:points} below the code section). If we assume that the error on these points is small, then this suggests that the underlying physical relation might be a linear relation in logarithmic space. The last point deviates from this relation with a rapid drop. If we again assume that the error is small, then this suggests that there might be an exponential decrease. 
+Four out of the 5 points plotted in logarithmic space seems to follow a straight line (see figure 3 below the code section). If we assume that the error on these points is small, then this suggests that the underlying physical relation might be a linear relation in logarithmic space. The last point deviates from this relation with a rapid drop. If we again assume that the error is small, then this suggests that there might be an exponential decrease. 
 
-% There is one point that deviates from this lineair relation. The last point has a rapid drop. This could mean that there either might be some kind of exponential drop, or that a measurement error is made. If we assume that the last point is not the result of some kind of measurement error then the points likely suggests that there is an exponential drop at the end. 
-Most of the data seems to follow a linear relation in log space. If you need to interpolate a value, then you likely need to interpolate withing this linear part, as it wouldn't make much sense to obtained most of your data in a region that is uninteresting. An interpolator should furthermore serve the data  as best as possible. Interpolating the data with a linear and for example a polynomial interpolator, shows that the polynomial interpolator better interpolates the expected exponential drop, where as the linear interpolator better interpolates the expected power law (see figure \ref{fig:interpolate} below the code section). Many other interpolation methods, such as cubic splines and nearest neighbor interpolation, also interpolate the expected exponential drop better than the linear interpolator, but fail to interpolate the linear relation with high accuracy (not shown). 
+
+Most of the data seems to follow a linear relation in log space. If you need to interpolate a value, then you likely need to interpolate withing this linear part, as it wouldn't make much sense to obtained most of your data in a region that is uninteresting. An interpolator should furthermore serve the data  as best as possible. Interpolating the data with a linear and for example a polynomial interpolator, shows that the polynomial interpolator better interpolates the expected exponential drop, where as the linear interpolator better interpolates the expected power law (see figure 4 below the code section). Many other interpolation methods, such as cubic splines and nearest neighbor interpolation, also interpolate the expected exponential drop better than the linear interpolator, but fail to interpolate the linear relation with high accuracy (not shown). 
 
 Based on the above two arguments there is therefore chosen to interpolate the points with a \textbf{linear interpolate} in log space. 
 
@@ -39,14 +39,12 @@ The code of the linear and polynomial interpolator.
 \centering
 \includegraphics[scale=0.7]{plots/points.pdf}
 \caption{A logarithmic plot of the 5 points that need to be interpolated.}
-\label{fig:points}
 \end{figure}
 
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.7]{plots/interpolate.pdf}
 \caption{The interpolation of the linear interpolator and the polynomial interpolator.}
-\label{fig:interpolate}
 \end{figure}
 \end{quote}
 \newpage
