@@ -1,4 +1,4 @@
-File: satgals_m11.txt Flatness: 0.9994103699
+File: satgals_m11.txt Flatness: 0.9994100965
 File: satgals_m12.txt Flatness: 0.9990262935
 File: satgals_m13.txt Flatness: 0.9988925551
 File: satgals_m14.txt Flatness: 0.9978142293
