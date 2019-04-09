@@ -1,2 +1,0 @@
-Left root: 0.0318795
-Right root: 1.4515403

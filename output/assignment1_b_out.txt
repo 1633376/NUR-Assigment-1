@@ -1,2 +1,0 @@
-Initializing seed:  5332341
-Seed after creating plots:  3197832550

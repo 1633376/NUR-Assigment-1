@@ -23,8 +23,8 @@ def main():
     interpolator = mathlib.interpolate3D.Interpolate3D(table, ranges)
     
     # Go through each file and find the optimum.
-    for file in ['satgals_m15.txt', 'satgals_m14.txt', 'satgals_m13.txt',
-                 'satgals_m12.txt', 'satgals_m11.txt']:
+    for file in ['satgals_m11.txt', 'satgals_m12.txt', 'satgals_m13.txt',
+                 'satgals_m14.txt', 'satgals_m15.txt']:
 
 
         # Read the file with halos and create a super halo.
